@@ -1,7 +1,11 @@
 const app = require('express')();
+var cors = require('cors')
+const port = 8000;
 
-app.listen(8000, () => {
-  console.log('App listening on port 8000!');
+app.use(cors())
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}!`);
 });
 
 let users = [
@@ -77,13 +81,13 @@ const deleteUser = (user) => {
 
 // ENDPOINTS
 /* GET all users */
-app.get('/api/users', function (_req, res) {
+app.get('/api/users', async (_req, res) => {
   res
     .send(users);
 });
 
 /* GET a single user based on ID */
-app.get('/api/users/:id', function (req, res) {
+app.get('/api/users/:id', async (req, res) => {
   const userToDisplay = findUser(req.params.id);
   if (userToDisplay !== undefined) {
     res
@@ -106,7 +110,7 @@ app.get('/api/users/:id', function (req, res) {
     "email": "email@mail.com"
   }
 */
-app.post('/api/users', function (req, res) {
+app.post('/api/users', async (req, res) => {
   const nextuser = req.body;
   nextuser.id = nextId(users).toString();
   if (validateUser(nextuser)) {
@@ -132,7 +136,7 @@ app.post('/api/users', function (req, res) {
     "email": "fakemail@fakeit.com"
   }
 */
-app.put('/api/users/:id', function (req, res) {
+app.put('/api/users/:id', async (req, res) => {
   const userToUpdate = findUser(req.params.id);
   const updatedUserData = req.body;
   if (userToUpdate !== undefined) {
@@ -153,7 +157,7 @@ app.put('/api/users/:id', function (req, res) {
 });
 
 /* DELETE a user */
-app.delete('/api/users/:id', function (req, res) {
+app.delete('/api/users/:id', async (req, res) => {
   const userToDeleteId = req.params.id;
   const userToDelete = findUser(userToDeleteId);
   if (userToDelete !== undefined) {
