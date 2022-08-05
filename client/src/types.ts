@@ -3,22 +3,25 @@ export type User = {
   id: string;
   name: {
     first: string,
-    last?: string
+    last: string
   };
   email: string;
   phone: string;
 }
-
 export type Users = Array<User>;
 
 // custom props
-export interface TableButtonProps {
+export interface HeaderProps {
   title: string;
+}
+export interface TableItemsProps {
+  users: Users;
+}
+export interface EditFormProps {
   userInfo: User;
 }
-
-export interface ModalProps {
-  toggleModal: (e: any) => void;
+export interface TableButtonProps {
+  title: string;
   userInfo: User;
 }
 

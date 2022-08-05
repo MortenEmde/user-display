@@ -1,25 +1,34 @@
 import React from 'react';
-import { Users } from '../types';
-import ButtonEdit from './ButtonEdit';
-import ButtonDelete from './ButtonDelete';
-
-interface TableItemsProps {
-  users: Users;
-}
+import { Link } from 'react-router-dom';
+import { TableItemsProps, Users } from '../types';
 
 const TableItems: React.FC<TableItemsProps> = ({ users }) => {
 
-  const renderItems = (usersArr: Users) => {
+  const renderRows = (usersArr: Users) => {
     return usersArr.map((user) => {
       const {id, name, email, phone} = user;
       if (id && name && email && phone) {
         return <tr key={id}>
-                  <td>{name.first}</td>
-                  <td>{name.last}</td>
-                  <td>{email}</td>
-                  <td>{phone}</td>
-                  <ButtonEdit title='&#9999;' userInfo={user} />
-                  <ButtonDelete title='&#10006;' userInfo={user} />
+                  <td>
+                    <Link to={{ pathname: '/edit', state: user}}>
+                      {name.first}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={{ pathname: '/edit', state: user}}>
+                      {name.last}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={{ pathname: '/edit', state: user}}>
+                      {email}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={{ pathname: '/edit', state: user}}>
+                      {phone}
+                    </Link>
+                  </td>
                </tr>
       }
     });
@@ -27,7 +36,7 @@ const TableItems: React.FC<TableItemsProps> = ({ users }) => {
 
   return (
     <React.Fragment>
-      {renderItems(users)}
+      {renderRows(users)}
     </React.Fragment>
   );
 };

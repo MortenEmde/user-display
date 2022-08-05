@@ -7,10 +7,8 @@ const TableHeader: React.FC = () => {
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Phone</th>
         <th>e-mail</th>
-        <td>Edit</td>
-        <td>Delete</td>
+        <th>Phone</th>
       </tr>
     </thead>
   );

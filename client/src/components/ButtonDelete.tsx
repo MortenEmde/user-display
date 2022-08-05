@@ -1,20 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import deleteUserService from '../services/deleteUserService';
 import { TableButtonProps } from '../types';
-
-const buttonAction = (userId: string) => {
-  return console.log(userId, 'Working!')
-}
+import './ButtonDelete.css';
 
 const ButtonDelete: React.FC<TableButtonProps> = ({ title, userInfo }) => {
   return (
-    <td>
+    <Link to={'/'}>
       <button
+        className='delete-button'
         type='button'
-        onClick={() => buttonAction(userInfo.id)}
+        onClick={() => deleteUserService(userInfo.id)}
       >
         {title}
       </button>
-    </td>
+    </Link>
   );
 };
 
