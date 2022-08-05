@@ -1,15 +1,28 @@
+// custom types
 export type User = {
   id: string;
   name: {
     first: string,
     last?: string
   };
-  phone: string;
   email: string;
+  phone: string;
 }
 
 export type Users = Array<User>;
 
+// custom props
+export interface TableButtonProps {
+  title: string;
+  userInfo: User;
+}
+
+export interface ModalProps {
+  toggleModal: (e: any) => void;
+  userInfo: User;
+}
+
+// service type
 interface ServiceInit {
   status: 'init';
 }
