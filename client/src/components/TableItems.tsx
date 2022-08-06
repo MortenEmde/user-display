@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { TableItemsProps, Users } from '../types';
+import './TableItems.css';
 
 const TableItems: React.FC<TableItemsProps> = ({ users }) => {
   const renderRows = (usersArr: Users): (JSX.Element | undefined)[] => usersArr.map((user) => {
@@ -13,22 +14,22 @@ const TableItems: React.FC<TableItemsProps> = ({ users }) => {
     if (id && name && email && phone) {
       return (
         <tr key={id}>
-          <td>
+          <td className="table-cell">
             <Link to={{ pathname: '/edit', state: user }}>
               { name.first }
             </Link>
           </td>
-          <td>
+          <td className="table-cell">
             <Link to={{ pathname: '/edit', state: user }}>
               { name.last }
             </Link>
           </td>
-          <td>
+          <td className="table-cell">
             <Link to={{ pathname: '/edit', state: user }}>
               { email }
             </Link>
           </td>
-          <td>
+          <td className="table-cell">
             <Link to={{ pathname: '/edit', state: user }}>
               { phone }
             </Link>
