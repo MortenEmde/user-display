@@ -1,20 +1,25 @@
 import { ServerUrl } from '../serverURL';
 import { User } from '../types';
 
-const putUserService = (userInfo: User) => { 
-  const { id, name, email, phone } = userInfo;
+const putUserService = (userInfo: User): void => {
+  const {
+    id,
+    name,
+    email,
+    phone,
+  } = userInfo;
   const requestOptions = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      id: id,
+      id,
       name: {
         first: name.first,
-        last: name.last
+        last: name.last,
       },
-      phone: phone,
-      email: email
-    })
+      phone,
+      email,
+    }),
   };
   fetch(`${ServerUrl}/api/users/${id}`, requestOptions)
     .catch((error) => console.log(error));

@@ -4,18 +4,16 @@ import deleteUserService from '../services/deleteUserService';
 import { TableButtonProps } from '../types';
 import './ButtonDelete.css';
 
-const ButtonDelete: React.FC<TableButtonProps> = ({ title, userInfo }) => {
-  return (
-    <Link to={'/'}>
-      <button
-        className='delete-button'
-        type='button'
-        onClick={() => deleteUserService(userInfo.id)}
-      >
-        {title}
-      </button>
-    </Link>
-  );
-};
+const ButtonDelete: React.FC<TableButtonProps> = ({ title, userInfo }) => (
+  <Link to="/">
+    <button
+      className="delete-button"
+      type="button"
+      onClick={() => deleteUserService(userInfo.id)}
+    >
+      {title}
+    </button>
+  </Link>
+);
 
 export default ButtonDelete;

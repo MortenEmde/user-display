@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import EditForm from '../components/EditForm';
 import Header from '../components/Header';
+import { EditProps } from '../types';
 
-const Edit = (props: any) => {
+const Edit = (props: EditProps): ReactElement => {
+  const { location } = props;
   return (
     <div>
-      <Header title={`Edit details for user number-${props.location.state.id}`}/>
-      <EditForm userInfo={props.location.state}/>
+      <Header title={`Edit details for user number-${location.state.id}`} />
+      <EditForm userInfo={location.state} />
     </div>
   );
 };

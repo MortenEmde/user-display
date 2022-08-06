@@ -13,7 +13,6 @@ const useUsersService = (): Service<Users> => {
       .then((res) => setUsers({ status: 'loaded', payload: res }))
       .catch((error) => setUsers({ status: 'error', error }));
   }, []);
-  
   return users;
 };
 

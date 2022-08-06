@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Edit from '../pages/Edit';
 
-export default function Routes() {
-
+export default function Routes(): ReactElement {
   return (
     <BrowserRouter>
       <Switch>

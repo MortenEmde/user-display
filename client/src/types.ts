@@ -11,6 +11,11 @@ export type User = {
 export type Users = Array<User>;
 
 // custom props
+export interface EditProps {
+  location: {
+    state: User;
+  };
+}
 export interface HeaderProps {
   title: string;
 }

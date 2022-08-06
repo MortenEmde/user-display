@@ -3,6 +3,9 @@
         "browser": true,
         "es2021": true
     },
+    "globals": {
+      "JSX": true
+    },
     "extends": [
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
@@ -44,7 +47,8 @@
       "react/function-component-definition": [
         2,
         {
-          "namedComponents": "function-declaration",
+          "namedComponents": ["arrow-function", "function-declaration"],
+          "unnamedComponents": "arrow-function"
         }
       ],
       "max-len": ["warn", { "code": 100 }],
