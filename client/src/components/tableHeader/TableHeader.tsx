@@ -1,13 +1,12 @@
 import React from 'react';
 import './TableHeader.css';
 
+const headerItems = ['First Name', 'Last Name', 'e-mail', 'Phone'];
+
 const TableHeader: React.FC = () => (
   <thead>
     <tr>
-      <th className="table-header-cell">First Name</th>
-      <th className="table-header-cell">Last Name</th>
-      <th className="table-header-cell">e-mail</th>
-      <th className="table-header-cell">Phone</th>
+      {headerItems.map((item) => <th className="table-header-cell" key={item}>{item}</th>)}
     </tr>
   </thead>
 );

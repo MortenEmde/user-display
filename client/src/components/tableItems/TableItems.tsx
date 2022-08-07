@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TableItemsProps, Users } from '../../types';
+import { TableItemsProps, Users, User } from '../../types';
 import './TableItems.css';
 
 const TableItems: React.FC<TableItemsProps> = ({ users }) => {
+  const renderCells = (itemArr: (string | undefined)[], user: User): JSX.Element[] => itemArr.map((item) => (
+    <td className="table-cell" key={item}>
+      <Link to={{ pathname: '/edit', state: user }}>
+        { item }
+      </Link>
+    </td>
+  ));
+
   const renderRows = (usersArr: Users): (JSX.Element | undefined)[] => usersArr.map((user) => {
     const {
       id,
@@ -12,28 +20,10 @@ const TableItems: React.FC<TableItemsProps> = ({ users }) => {
       phone,
     } = user;
     if (id && name && email && phone) {
+      const itemsArray = [name.first, name.last, email, phone];
       return (
         <tr key={id}>
-          <td className="table-cell">
-            <Link to={{ pathname: '/edit', state: user }}>
-              { name.first }
-            </Link>
-          </td>
-          <td className="table-cell">
-            <Link to={{ pathname: '/edit', state: user }}>
-              { name.last }
-            </Link>
-          </td>
-          <td className="table-cell">
-            <Link to={{ pathname: '/edit', state: user }}>
-              { email }
-            </Link>
-          </td>
-          <td className="table-cell">
-            <Link to={{ pathname: '/edit', state: user }}>
-              { phone }
-            </Link>
-          </td>
+          {renderCells(itemsArray, user)}
         </tr>
       );
     }

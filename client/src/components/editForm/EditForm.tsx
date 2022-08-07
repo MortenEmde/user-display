@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import putUserService from '../../services/putUserService';
 import { EditFormProps } from '../../types';
 import ButtonDelete from '../buttonDelete/ButtonDelete';
@@ -128,7 +128,9 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
       </div>
       <div className="form-buttons">
         <input className="submit-button" type="submit" value="Submit" />
-        <ButtonDelete title="Delete User &#10006;" userInfo={userInfo} />
+        <Link to="/">
+          <ButtonDelete title="Delete User &#10006;" userInfo={userInfo} />
+        </Link>
       </div>
     </form>
   );
