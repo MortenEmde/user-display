@@ -14,6 +14,16 @@ const usersData = [{
   phone: '0031610101010',
 }];
 
+const usersDataMissing = [{
+  id: '10',
+  name: {
+    first: 'test',
+    last: 'user',
+  },
+  email: '',
+  phone: '0031610101010',
+}];
+
 test('renders TableItems with correct cells', () => {
   render(
     <BrowserRouter>
@@ -32,4 +42,24 @@ test('renders TableItems with correct cells', () => {
   expect(lastNameCellElement).toBeInTheDocument();
   expect(emailCellElement).toBeInTheDocument();
   expect(phoneCellElement).toBeInTheDocument();
+});
+
+test('should not render TableItems if data is missing in user', () => {
+  render(
+    <BrowserRouter>
+      <table>
+        <tbody>
+          <TableItems users={usersDataMissing} />
+        </tbody>
+      </table>
+    </BrowserRouter>,
+  );
+  const firstNameCellElement = screen.queryByText(/test/i);
+  const lastNameCellElement = screen.queryByText(/user/i);
+  const emailCellElement = screen.queryByText(/fake@mail.com/i);
+  const phoneCellElement = screen.queryByText(/0031610101010/i);
+  expect(firstNameCellElement).toBeNull();
+  expect(lastNameCellElement).toBeNull();
+  expect(emailCellElement).toBeNull();
+  expect(phoneCellElement).toBeNull();
 });
