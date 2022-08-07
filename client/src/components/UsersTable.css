@@ -1,8 +1,12 @@
+.loading, .data-error {
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
 .users-table {
   width: 90%;
   margin: 25px auto;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
+  background-color: var(--dirty-white);
   border-collapse: collapse;
   border-radius: 8px;
 }

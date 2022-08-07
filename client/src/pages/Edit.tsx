@@ -7,7 +7,7 @@ const Edit = (props: EditProps): ReactElement => {
   const { location } = props;
   return (
     <div>
-      <Header title={`Edit details for user number-${location.state.id}`} />
+      <Header title={`Edit details for User-${location.state.id}`} />
       <EditForm userInfo={location.state} />
     </div>
   );

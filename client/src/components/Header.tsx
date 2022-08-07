@@ -3,7 +3,7 @@ import { HeaderProps } from '../types';
 import './Header.css';
 
 const Header: React.FC<HeaderProps> = ({ title }) => (
-  <h5 className="header-title">{title}</h5>
+  <h3 className="header-title">{title}</h3>
 );
 
 export default Header;

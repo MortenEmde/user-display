@@ -29,6 +29,11 @@ export interface TableButtonProps {
   title: string;
   userInfo: User;
 }
+export interface ValidationMessageProps {
+  touch: boolean,
+  regexCheck: boolean,
+  inputId: string,
+}
 
 // service type
 interface ServiceInit {

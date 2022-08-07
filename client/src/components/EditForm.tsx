@@ -4,13 +4,13 @@ import putUserService from '../services/putUserService';
 import { EditFormProps } from '../types';
 import ButtonDelete from './ButtonDelete';
 import './EditForm.css';
+import ValidationMessage from './ValidationMessage';
 
 const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
   const [firstName, setFirstName] = useState(userInfo.name.first);
   const [lastName, setLastName] = useState(userInfo.name.last);
   const [email, setEmail] = useState(userInfo.email);
   const [phone, setPhone] = useState(userInfo.phone);
-
   const [firstNameTouched, setFirstNameTouched] = useState(false);
   const [lastNameTouched, setLastNameTouched] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
@@ -23,21 +23,6 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
   // check that phone number is at least 10 digits (0612345678) and no more than 13 (0031612345678)
   const phoneRegex = /^[0-9]{10,13}$/.test(phone);
-
-  const renderValidationError = (touch: boolean, regexCheck: boolean, inputId: string ):JSX.Element | null => {
-    if (touch) {
-      if (!regexCheck && (inputId === 'firstNameInput' || inputId === 'lastNameInput')) {
-        return <p>Please only use letters from a to z</p>;
-      }
-      if (!regexCheck && inputId === 'emailInput') {
-        return <p>Please use correct format for email: example@mail.com</p>;
-      }
-      if (!regexCheck && inputId === 'phoneInput') {
-        return <p>Please use correct format for dutch phone number: 0612345678 or 0031612345678</p>;
-      }
-    }
-    return null;
-  };
 
   const submitChanges = (e: FormEvent): void => {
     e.preventDefault();
@@ -63,7 +48,7 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
     >
       <div>
         <label htmlFor="firstNameInput">
-          First Name
+          First Name*
           <input
             type="text"
             id="firstNameInput"
@@ -73,7 +58,11 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
             onBlur={() => setFirstNameTouched(true)}
             required
           />
-          {renderValidationError(firstNameTouched, nameRegex(firstName), 'firstNameInput')}
+          <ValidationMessage
+            touch={firstNameTouched}
+            regexCheck={nameRegex(firstName)}
+            inputId="firstNameInput"
+          />
         </label>
       </div>
       <div>
@@ -87,12 +76,19 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
             onChange={(e) => setLastName(e.target.value)}
             onBlur={() => setLastNameTouched(true)}
           />
-          {lastName ? renderValidationError(lastNameTouched, nameRegex(lastName), 'lastNameInput') : null}
+          {lastName
+            ? (
+              <ValidationMessage
+                touch={lastNameTouched}
+                regexCheck={nameRegex(lastName)}
+                inputId="lastNameInput"
+              />
+            ) : null}
         </label>
       </div>
       <div>
         <label htmlFor="emailInput">
-          e-mail
+          e-mail*
           <input
             type="text"
             id="emailInput"
@@ -102,12 +98,16 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
             onBlur={() => setEmailTouched(true)}
             required
           />
-          {renderValidationError(emailTouched, emailRegex, 'emailInput')}
+          <ValidationMessage
+            touch={emailTouched}
+            regexCheck={emailRegex}
+            inputId="emailInput"
+          />
         </label>
       </div>
       <div>
         <label htmlFor="phoneInput">
-          Phone
+          Phone*
           <input
             type="text"
             id="phoneInput"
@@ -118,7 +118,11 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
             onBlur={() => setPhoneTouched(true)}
             required
           />
-          {renderValidationError(phoneTouched, phoneRegex, 'phoneInput')}
+          <ValidationMessage
+            touch={phoneTouched}
+            regexCheck={phoneRegex}
+            inputId="phoneInput"
+          />
         </label>
       </div>
       <div className="form-buttons">

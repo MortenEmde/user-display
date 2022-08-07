@@ -1,0 +1,5 @@
+.validation-error-message {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: var(--deep-red);
+}

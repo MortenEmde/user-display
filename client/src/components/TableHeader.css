@@ -1,7 +1,7 @@
 .table-header-cell {
   padding: 12px 8px;
   text-align: left;
-  background-color: black;
-  color: #ddd;
-  border: 1px solid #ddd;
+  background-color: var(--black);
+  color: var(--white);
+  border: 1px solid var(--bright-gray);
 }

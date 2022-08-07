@@ -1,6 +1,14 @@
+:root {
+  --white: #fff;
+  --black: #1f1d20;
+  --deep-red: #db0032;
+  --dirty-white: #f4f4f5;
+  --bright-gray: #ebebec;  
+}
+
 body {
-  background-color: #dddddd;
-  color: rgb(55, 55, 55);
+  background-color: var(--bright-gray);
+  color: var(--black);
   font-family: 'Roboto';
   margin: 0;
 }
@@ -8,9 +16,9 @@ body {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: rgb(55, 55, 55);
+  color: var(--black);
 }
 
 a:hover, a:focus {
-  color: rgb(190, 1, 1);
+  color: var(--deep-red);
 }

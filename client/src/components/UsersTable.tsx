@@ -9,7 +9,7 @@ const UsersTable: React.FC = () => {
 
   return (
     <>
-      {usersService.status === 'loading' && <div>Loading...</div>}
+      {usersService.status === 'loading' && <h4 className="loading">Loading...</h4>}
       {usersService.status === 'loaded'
        && (
          <table className="users-table">
@@ -20,7 +20,7 @@ const UsersTable: React.FC = () => {
          </table>
        )}
       {usersService.status === 'error' && (
-        <div>Error, User data could not be found.</div>
+        <h4 className="data-error">Error, User data could not be found.</h4>
       )}
     </>
   );
