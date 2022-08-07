@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderProps } from '../types';
+import { HeaderProps } from '../../types';
 import './Header.css';
 
 const Header: React.FC<HeaderProps> = ({ title }) => (

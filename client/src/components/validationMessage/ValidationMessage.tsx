@@ -1,5 +1,5 @@
 import React from 'react';
-import { ValidationMessageProps } from '../types';
+import { ValidationMessageProps } from '../../types';
 import './ValidationMessage.css';
 
 const ValidationMessage: React.FC<ValidationMessageProps> = ({

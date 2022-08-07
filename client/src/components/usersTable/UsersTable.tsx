@@ -1,7 +1,7 @@
 import React from 'react';
-import useUsersService from '../services/useUsersService';
-import TableHeader from './TableHeader';
-import TableItems from './TableItems';
+import useUsersService from '../../services/useUsersService';
+import TableHeader from '../tableHeader/TableHeader';
+import TableItems from '../tableItems/TableItems';
 import './UsersTable.css';
 
 const UsersTable: React.FC = () => {

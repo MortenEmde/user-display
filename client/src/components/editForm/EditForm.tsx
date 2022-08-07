@@ -1,16 +1,18 @@
 import React, { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import putUserService from '../services/putUserService';
-import { EditFormProps } from '../types';
-import ButtonDelete from './ButtonDelete';
+import putUserService from '../../services/putUserService';
+import { EditFormProps } from '../../types';
+import ButtonDelete from '../buttonDelete/ButtonDelete';
 import './EditForm.css';
-import ValidationMessage from './ValidationMessage';
+import ValidationMessage from '../validationMessage/ValidationMessage';
 
 const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
+  // state hooks to store current userInfo values
   const [firstName, setFirstName] = useState(userInfo.name.first);
   const [lastName, setLastName] = useState(userInfo.name.last);
   const [email, setEmail] = useState(userInfo.email);
   const [phone, setPhone] = useState(userInfo.phone);
+  // state hooks to check if inputs have been touched during current edit
   const [firstNameTouched, setFirstNameTouched] = useState(false);
   const [lastNameTouched, setLastNameTouched] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
@@ -26,7 +28,6 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
 
   const submitChanges = (e: FormEvent): void => {
     e.preventDefault();
-
     if (!nameRegex || !emailRegex || !phoneRegex) {
       return alert('Please ensure you correctly filled in each field');
     }

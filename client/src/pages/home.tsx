@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../components/Header';
-import UsersTable from '../components/UsersTable';
+import Header from '../components/header/Header';
+import UsersTable from '../components/usersTable/UsersTable';
 
 const Home: React.FC = () => (
   <div>

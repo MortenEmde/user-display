@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TableItemsProps, Users } from '../types';
+import { TableItemsProps, Users } from '../../types';
 import './TableItems.css';
 
 const TableItems: React.FC<TableItemsProps> = ({ users }) => {
@@ -37,6 +37,7 @@ const TableItems: React.FC<TableItemsProps> = ({ users }) => {
         </tr>
       );
     }
+    // dont render a row if data in user object is incompleate
     return undefined;
   });
 

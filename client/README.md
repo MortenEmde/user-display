@@ -19,7 +19,8 @@ The application consist of 2 pages _Home_ and _Edit_.
 _Home_ displays a table of user data fetched from the server (server is found next to this client in the [main repository folder](../README.md))
 
 _Edit_ is accessed by clicking on user data in _Home_-table.   
-The page displays a edit-form with the current details of the selected user already prefilled.
+The page displays a edit-form with the current details of the selected user already prefilled.  
+All fields are mandatory for submit except for _Last Name_ in case your user is Madonna, Cher or Elvis.
 
 ## How to use
 

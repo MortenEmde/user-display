@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import EditForm from '../components/EditForm';
-import Header from '../components/Header';
+import EditForm from '../components/editForm/EditForm';
+import Header from '../components/header/Header';
 import { EditProps } from '../types';
 
 const Edit = (props: EditProps): ReactElement => {
