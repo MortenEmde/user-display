@@ -36,6 +36,15 @@ let users = [
     phone: '0031634567012',
     email: 'fakepost@fakeit.com',
   },
+  {
+    id: '4',
+    name: {
+      first: 'Madonna',
+      last: ''
+    },
+    phone: '0031645670123',
+    email: 'madona@nolastname.com',
+  },
 ];
 
 const bodyParser = require('body-parser');
