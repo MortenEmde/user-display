@@ -22,6 +22,7 @@ const putUserService = (userInfo: User): void => {
     }),
   };
   fetch(`${ServerUrl}/api/users/${id}`, requestOptions)
+    // eslint-disable-next-line no-console
     .catch((error) => console.log(error));
 };
 
