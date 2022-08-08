@@ -9,7 +9,7 @@
 body {
   background-color: var(--bright-gray);
   color: var(--black);
-  font-family: 'Verdana';
+  font-family: 'Verdana, Arial, Helvetica, sans-serif';
   margin: 0;
 }
 
