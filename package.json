@@ -1,0 +1,11 @@
+{
+  "name": "user-display",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npm i && concurrently \"cd server && npm i && npm run start\" \"cd client && npm i && npm run start\""
+  },
+  "dependencies": {
+    "concurrently": "^7.3.0"
+  }
+}

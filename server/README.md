@@ -27,11 +27,11 @@ For the data of each user the following rules apply:
 
 # How to use
 
-In your terminal install node_modules
+First, install dependencies through:
 ```
 npm install
 ```
-Run dev server
+Run server with:
 ```
 npm start
 ```
