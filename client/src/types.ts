@@ -1,4 +1,5 @@
 // custom types
+// type structure for single user data
 export type User = {
   id: string;
   name: {
@@ -8,6 +9,7 @@ export type User = {
   email: string;
   phone: string;
 }
+// type structure for array of user(s) data
 export type Users = Array<User>;
 
 // custom props
