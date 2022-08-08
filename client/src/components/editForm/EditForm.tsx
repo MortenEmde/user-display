@@ -22,7 +22,6 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
   // check that only letters preset in first name
   const nameRegex = (name: string): boolean => /^[a-zA-Z]+$/.test(name);
   // check that email have correct format start@end.domain
-  // eslint-disable-next-line max-len
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
   // check that phone number is at least 10 digits (0612345678) and no more than 13 (0031612345678)
   const phoneRegex = /^[0-9]{10,13}$/.test(phone);
@@ -30,7 +29,6 @@ const EditForm: React.FC<EditFormProps> = ({ userInfo }) => {
   const submitChanges = (e: FormEvent): void => {
     e.preventDefault();
     if (!nameRegex || !emailRegex || !phoneRegex) {
-      // eslint-disable-next-line no-alert
       return alert('Please ensure you correctly filled in each field');
     }
     putUserService({
