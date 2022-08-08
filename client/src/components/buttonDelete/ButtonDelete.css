@@ -1,5 +1,5 @@
 .delete-button {
-  font-family: 'Verdana, Arial, Helvetica, sans-serif';
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   padding: 14px 20px;
   margin: 8px 0 0 8px;
   background-color: var(--deep-red);
