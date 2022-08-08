@@ -23,6 +23,15 @@ To install dependencies and start up the application + server, in the terminal t
   ```
   npm run start
   ```
+4. After a few seconds the terminal will display:
+  ```js
+  [1] Compiled successfully!
+  [1] 
+  [1] You can now view client in the browser.
+  [1] 
+  [1]   Local:            http://localhost:3000/
+  [1]   On Your Network:  http://192.168.178.30:3000/
+  ```
 
 Alternatively, you can follow the steps in the README.md of the client and server seperatelty.
 
